@@ -3,6 +3,63 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+This project is developed from local environment (Mac OS) using PostgreSQL.  Here are the steps to set up:
+1. install Postgres and start the server - make sure it is running.
+	I created rails project before the db was installed properly. I manually run the scripts to create development and test db for the local dev project. Here are the list of URLs I followed:
+	https://www.codefellows.org/blog/three-battle-tested-ways-to-install-postgresql
+
+	https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04
+
+	https://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/
+
+	Commands: 
+	mkdir -p ~/Library/LaunchAgents
+	ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist (this starts the db server when login)
+
+    createdb saas-project-app_development
+  	createdb saas-project-app_test
+
+  	install 
+  	gem install pg
+
+  	Some psql commands:
+  	\l -> display all the dbs;
+  	\c testdb -> connect to a db;
+
+2. Ruby and Rails have been installed at the begining of the course and a sample project was created to verify the environment.
+
+
+3. Add local SSH key to git account. Create new git repo and initialize the local repo to the remote.
+
+4. Install heroku toolbelt to gain access to heroku CLI and create app:
+	heroku create
+	heroku login
+	heroku create
+	git remote -v
+	heroku git:remote -a nameless-dusk-46008
+
+5. Production deploy
+	git push heroku master
+	heroku run rake db:migrate
+
+6. sublime text 3 set up - add plugins
+	https://www.youtube.com/watch?v=NrYzJz1P4fE
+
+
+I also want to document other technical issues I encountered in the process:
+
+1. when 'twitter-bootstrap-rails' -> this gem has dependency of execJS. I find only a few questions on the net so did this:
+	gem install execjs
+
+	I could also add it to the gem file?
+
+	Get "undefined method 'devise_for'"" -> can't shut down rails server using CTRL + c, had to kill -9 PID
+
+	Had run the wrong devise our of the order and needed to restore the last commit in git to go back to initial commit:
+	git fetch origin master
+	git reset --hard FETCH_HEAD
+	git clean -df
 Things you may want to cover:
 
 * Ruby version
