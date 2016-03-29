@@ -35,6 +35,8 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_optioins = {:host =>'https://nameless-dusk-46008.herokuapp.com'}
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
