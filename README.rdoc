@@ -60,6 +60,19 @@ I also want to document other technical issues I encountered in the process:
 	git fetch origin master
 	git reset --hard FETCH_HEAD
 	git clean -df
+		or:
+		run similar commands to reverse:
+			rails d controller lalala
+			rails d model yadayada
+			rails d scaffold hohoho
+
+	Some useful psql for future references:
+
+
+
+	rails generate bootstrap:install static -> this means no need to customize stylesheet using LESS so it installs CSS stylesheets only
+
+
 Things you may want to cover:
 
 * Ruby version
