@@ -1,4 +1,23 @@
 Rails.application.configure do
+   
+  # devise says to define default url
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # set up for email sending even in dev mode
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.delivery_method = :smtp
+  
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => "587",
+    :authentication => :plain,
+    :user_name => "do-not-reply@example.com",
+    :password => ENV["SMTP_ENTRY"],
+    :enable_starttls_auto => true
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -36,7 +55,7 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
   config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_optioins = {:host =>'https://nameless-dusk-46008.herokuapp.com'}
+  config.action_mailer.default_url_options = {:host =>'https://nameless-dusk-46008.herokuapp.com'}
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
