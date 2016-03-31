@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+# this change make sure the project appears after tenant
+  resources :tenants do
+    resources :projects
+  end
   resources :members
   get 'home/index'
 

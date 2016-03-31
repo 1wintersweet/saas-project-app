@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
 	# only index action: on the server on the index no need to require authentication
   skip_before_action :authenticate_tenant!, :only => [ :index ]
 
@@ -12,6 +11,7 @@ class HomeController < ApplicationController
   			Tenant.set_current_tenant current_user.tenants.first
   		end
   		@tenant = Tenant.current_tenant
+      @projects = Project.by_plan_and_tenant(@tenant.id)
   		params[:tenant_id] = @tenant.id
   	end
   end
