@@ -72,6 +72,11 @@ I also want to document other technical issues I encountered in the process:
 
 	rails generate bootstrap:install static -> this means no need to customize stylesheet using LESS so it installs CSS stylesheets only
 
+	aws set up:
+
+	create ENV variables
+	add gem aws-sdk
+
 
 Things you may want to cover:
 

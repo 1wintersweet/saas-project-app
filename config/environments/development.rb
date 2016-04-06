@@ -17,7 +17,7 @@ Rails.application.configure do
     :password => ENV["SMTP_ENTRY"],
     :enable_starttls_auto => true
   }
-
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

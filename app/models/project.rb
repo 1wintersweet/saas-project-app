@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   belongs_to :tenant
   validates_uniqueness_of :title
+  has_many :artifacts, dependent: :destroy 
+  # dependent objects will be removed. 
   validate :free_plan_can_only_have_one_project
 
 	def free_plan_can_only_have_one_project

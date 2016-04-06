@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :artifacts
 # this change make sure the project appears after tenant
   resources :tenants do
     resources :projects
