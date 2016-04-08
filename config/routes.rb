@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :user_projects
   resources :artifacts
 # this change make sure the project appears after tenant
   resources :tenants do
-    resources :projects
+    resources :project do 
+      get 'users', on: :member
+      get 'add_user', on: :member  
+    end
   end
   resources :members
   get 'home/index'
