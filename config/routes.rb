@@ -2,17 +2,18 @@ Rails.application.routes.draw do
 
   resources :user_projects
   resources :artifacts
+
 # this change make sure the project appears after tenant
   resources :tenants do
-    resources :project do 
+    resources :projects do 
       get 'users', on: :member
-      get 'add_user', on: :member  
+      put 'add_user', on: :member  
     end
   end
+
   resources :members
   get 'home/index'
-
-   root :to => "home#index"
+  root :to => "home#index"
 
     
   # *MUST* come *BEFORE* devise's definitions (below)
